@@ -1,7 +1,8 @@
 import { Axios } from "axios";
 import { TBaseData, TEpochValidators, TPoolHistory } from "./types";
 
-const BASE_URL = "http://ut-72:3000/";
+const BASE_URL = "http://38.242.250.37:4000/";
+
 const axios = new Axios({
   baseURL: BASE_URL,
   headers: {

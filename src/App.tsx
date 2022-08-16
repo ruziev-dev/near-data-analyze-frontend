@@ -10,6 +10,7 @@ function App() {
   useEffect(() => {
     store.initializeApp();
   }, []);
+
   return (
     <div>
       <Header />
