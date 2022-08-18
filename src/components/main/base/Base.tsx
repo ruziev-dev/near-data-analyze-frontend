@@ -53,8 +53,8 @@ export const Base = observer(() => {
   };
   return (
     <Box sx={{ padding: 1 }}>
-      <p className="h3">Epochs History Data</p>
-      <ResponsiveContainer width="100%" height={350}>
+      <p className="h5 m-3">Epochs History Data</p>
+      <ResponsiveContainer width="100%" height={360} className="mt-3">
         <AreaChart data={data} syncId="cursorId" onClick={onEpochClick}>
           <defs>
             <linearGradient
@@ -126,7 +126,7 @@ export const Base = observer(() => {
         </AreaChart>
       </ResponsiveContainer>
 
-      <ResponsiveContainer width="100%" height={350}>
+      <ResponsiveContainer width="100%" height={360} className="mt-3">
         <ComposedChart data={data} syncId="cursorId" onClick={onEpochClick}>
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis

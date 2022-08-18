@@ -14,8 +14,8 @@ export const SideBar = observer(() => {
 
   return (
     <Box>
-      <div className="card overflow-auto">
-        <List component="nav" sx={{ height: "90vh" }}>
+      <div className="vh-100 card overflow-auto ">
+        <List component="nav">
           <ListItemContent
             sx={{ padding: 1, display: "flex", flexDirection: "row" }}
           >

@@ -1,11 +1,12 @@
-import { Box, ListItem, ListItemText } from "@mui/material";
+import { Box } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { store } from "../../../store/store";
 import { IconInfo } from "../epoch/IconInfo";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
 import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
 import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
-
+import Card from "@mui/joy/Card";
+import Typography from "@mui/joy/Typography";
 import {
   Area,
   Bar,
@@ -19,6 +20,7 @@ import {
 } from "recharts";
 import { formatTime } from "../../../helpers";
 import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
+import { Avatar } from "@mui/joy";
 
 const labelFormatter = (label: any, payload: any[]) => {
   return (
@@ -33,7 +35,6 @@ const labelFormatter = (label: any, payload: any[]) => {
 };
 
 export const Pool = observer(() => {
-
   const onEpochClick = (data: CategoricalChartState) => {
     console.log(data);
     const epochId = data.activePayload?.[0]?.payload?.ID || "";
@@ -61,13 +62,47 @@ export const Pool = observer(() => {
 
   return (
     <Box sx={{ padding: 1 }}>
-      <p
-        className="h4"
-        style={{ marginLeft: 20, marginTop: -20, marginBottom: -40 }}
-      >
-        Pool {store.selectedPool}
-      </p>
-      <div className="d-flex flex-row bd-highlight mb-3 m-5 justify-content-around ">
+      <div className="d-flex flex-row bd-highlight mt-0 justify-content-around ">
+        {poolContacts && (
+          <Card>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 2,
+              }}
+            >
+              <Avatar
+                size="lg"
+                alt={poolContacts.country_code}
+                src={
+                  poolContacts.country_code
+                    ? `https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.4/flags/4x3/${poolContacts.country_code}.svg`
+                    : "https://assets.vglive.no/dist/img/flag-blank.3a4771e35e.svg"
+                }
+              />
+              <div>
+                {poolContacts.email && (
+                  <Typography component="div">{poolContacts.email}</Typography>
+                )}
+                {poolContacts.url && (
+                  <Typography component="div">{poolContacts.url}</Typography>
+                )}
+                {poolContacts.twitter && (
+                  <Typography level="body2">
+                    Twitter: {poolContacts.twitter}
+                  </Typography>
+                )}
+                {poolContacts.telegram && (
+                  <Typography level="body2">
+                    Telegram: {poolContacts.telegram}
+                  </Typography>
+                )}
+              </div>
+            </Box>
+          </Card>
+        )}
         <IconInfo
           IconComponent={() => <WidgetsOutlinedIcon sx={{ fontSize: 40 }} />}
           description="Blocks Total"
@@ -86,7 +121,7 @@ export const Pool = observer(() => {
           value={kickedOut}
         />
 
-        {poolContacts && (
+        {/* poolContacts && (
           <Box
             sx={{
               display: "flex",
@@ -96,8 +131,9 @@ export const Pool = observer(() => {
             }}
           >
             {Object.keys(poolContacts).map((key) => (
-              <ListItem key={key} sx={{ maxWidth: 250 }}>
+              <ListItem key={key} sx={{ maxWidth: 250, padding: 0}}>
                 <ListItemText
+                  sx={{ margin: 0}}
                   primary={key}
                   secondary={
                     //@ts-ignore
@@ -107,7 +143,7 @@ export const Pool = observer(() => {
               </ListItem>
             ))}
           </Box>
-        )}
+        ) */}
       </div>
       <Box>
         <ResponsiveContainer width="100%" height={350}>

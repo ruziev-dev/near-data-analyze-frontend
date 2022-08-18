@@ -17,12 +17,12 @@ export const MainArea = observer(() => {
       break;
   }
   return (
-    <div className="card">
-      <Box sx={{ height: "90vh" }}>
+    <div className="card vh-100">
+      <Box>
         {store.isFetch ? (
           <Box
             sx={{
-              height: "100%",
+              marginTop: 30,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",

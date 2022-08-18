@@ -26,11 +26,8 @@ const labelFormatter = (label: any, payload: any[]) => {
 
 export const Epoch = observer(() => {
   return (
-    <Box sx={{ padding: 1 }}>
-      <p className="h4" style={{ marginLeft: 20, marginTop: -20 }}>
-        Epoch info
-      </p>
-      <div className="d-flex flex-row bd-highlight mb-3 m-5">
+    <Box sx={{ padding: 1, marginTop: -5 }}>
+      <div className="d-flex flex-row justify-content-around bd-highlight m-5 ">
         <IconInfo
           IconComponent={() => <CalendarMonthIcon sx={{ fontSize: 40 }} />}
           description="Date"
@@ -76,7 +73,7 @@ export const Epoch = observer(() => {
             </Scatter>
           </ScatterChart>
         </ResponsiveContainer>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={300} className="mt-5">
           <ScatterChart syncId="cursorId">
             <CartesianGrid />
             <XAxis type="number" dataKey="STAKE" name="Stake" unit="Ⓝ" />

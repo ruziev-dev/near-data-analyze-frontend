@@ -11,7 +11,7 @@ export const IconInfo = ({
   colorClass,
 }: Props) => {
   return (
-    <div className={`d-flex flex-row align-items-center m-4 ${colorClass}`}>
+    <div className={`d-flex flex-row align-items-center ${colorClass}`}>
       <IconComponent />
       <div className="mt-1 d-flex flex-column justify-content-center align-items-center">
         <p className="font-weight-bold m-0"><b>{value}</b></p>
